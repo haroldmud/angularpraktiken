@@ -1,8 +1,8 @@
 export default {
-  displayName: 'nothing',
+  displayName: 'wishlist',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/nothing',
+  coverageDirectory: '../../coverage/apps/wishlist',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

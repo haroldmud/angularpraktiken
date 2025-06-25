@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { WishItem } from '../shared/models/wishlistItem';
+import { WishItems } from '../shared/model/wishlist'
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
 export class App {
-  item = [
-    new WishItem('Learn angular'),
-    new WishItem('Get Coffee', true),
-    new WishItem('Go back home')
+  List = [
+    new WishItems('Brand new mercedes c200'),
+    new WishItems('Learn Angular', true),
+    new WishItems('Finish the project')
   ]
-  title = 'wishlist'
+  protected title = 'wishlist'
 }
