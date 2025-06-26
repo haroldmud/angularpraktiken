@@ -20,7 +20,7 @@
           [attr.maxLength]="maxlength"
         />
         <div>
-          <span [ngClass]="{'text-red-500 font-bold': charChounter === maxlength}" class="text-[5px] pr-1">{{charChounter}}/{{maxlength}}</span>
+          <span [ngClass]="{'text-red-500 font-bold ': charChounter === maxlength}" class="text-[5px] pr-1">{{charChounter}}/{{maxlength}}</span>
           <button
             type="submit"
             class="bg-blue-500 hover:bg-blue-600 text-white text-xs font-semibold px-4 py-1 rounded-full transition-colors disabled:cursor-not-allowed"
@@ -32,28 +32,29 @@
         </div>
       </div>
     </form>
-
-    <div *ngIf="List.length === 0 else displayList">
-      <div class="mx-auto w-fit font-bold">
-        <h1>Oops! No wish to display for now</h1>
+    
+    <div>
+      <div *ngIf="List.length === 0 else displayList">
+        <div class="mx-auto w-fit font-bold">
+          <h1>Oops! No wish to display for now</h1>
+        </div>
       </div>
+      <ng-template #displayList>
+        <ul class="mx-auto w-fit">
+          <li *ngFor="let item of List">
+            <label class="inline-flex gap-1">
+              <input
+                type="checkbox"
+                [checked]="item.isFulfilled"
+                (click)="toggleItem(item)"
+              />
+              <h2 [ngClass]="{'italic text-gray-300': item.isFulfilled}">
+                {{item.wishText}}
+              </h2></label
+            >
+          </li>
+        </ul>
+      </ng-template>
     </div>
-
-    <ng-template #displayList>
-      <ul class="mx-auto w-fit">
-        <li *ngFor="let item of List">
-          <label class="inline-flex gap-1">
-            <input
-              type="checkbox"
-              [checked]="item.isFulfilled"
-              (click)="toggleItem(item)"
-            />
-            <h2 [ngClass]="{'italic text-gray-300': item.isFulfilled}">
-              {{item.wishText}}
-            </h2></label
-          >
-        </li>
-      </ul>
-    </ng-template>
   </body>
 </html>
