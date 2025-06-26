@@ -41,7 +41,6 @@
         name="filter"
         id="select0_1_2"
         [(ngModel)]="listFilter"
-        (ngModelChange)="filterChange($event)"
         class="w-full bg-white border border-gray-300 text-sm text-gray-700 rounded-lg shadow-sm py-2 focus:outline-none focus:ring-2 focus:ring-blue-100"
       >
         <option value="all">All Wishes</option>
@@ -50,14 +49,14 @@
       </select>
     </div>
     <div>
-      <div *ngIf="List.length === 0 else displayList">
+      <div *ngIf="visibleItems.length === 0 else displayList">
         <div class="mx-auto w-fit font-bold">
-          <h1>Oops! No wish to display for now</h1>
+          <h1>No wish to display</h1>
         </div>
       </div>
       <ng-template #displayList>
         <ul class="mx-auto w-fit">
-          <li *ngFor="let item of List">
+          <li *ngFor="let item of visibleItems">
             <label class="inline-flex gap-1">
               <input
                 type="checkbox"

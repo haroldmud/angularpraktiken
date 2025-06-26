@@ -18,15 +18,23 @@ export class App {
   ]
 
   protected title = 'wishlist'
-
-  listFilter = "all"
-
   newWish = ''
   maxlength = 30
   charChounter = 0
 
   toggleItem(item: WishItems) {
     item.isFulfilled = !item.isFulfilled
+  }
+  listFilter = "all"
+  get visibleItems(): WishItems[] {
+    const value = this.listFilter
+    if(value === "unfulfilled") {
+      return this.List.filter(item => !item.isFulfilled)
+    } else if(value === "fulfilled") {
+      return this.List.filter(item => item.isFulfilled)
+    } else {
+      return this.List
+    }
   }
 
   addNewWish() {
@@ -37,9 +45,5 @@ export class App {
   onNewWishChange(value: string) {
     console.log('content change to:', value)
     this.charChounter = value.length
-  }
-
-  filterChange(value: string) {
-    console.log("filter change:", value)
   }
 }
