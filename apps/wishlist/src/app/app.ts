@@ -26,6 +26,9 @@ export class App {
     item.isFulfilled = !item.isFulfilled
   }
   listFilter = "all"
+
+  //The reason why we're using the getter here is to make sure the update of our list of wish is happens real time(automatically), that's basically how we handle changes of state in angular
+  //It's not treated like a function but rather like an array in this case, I mean you can see the array type down there
   get visibleItems(): WishItems[] {
     const value = this.listFilter
     if(value === "unfulfilled") {
