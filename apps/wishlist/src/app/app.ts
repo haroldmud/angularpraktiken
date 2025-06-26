@@ -19,6 +19,8 @@ export class App {
 
   protected title = 'wishlist'
 
+  listFilter = "all"
+
   newWish = ''
   maxlength = 30
   charChounter = 0
@@ -35,5 +37,9 @@ export class App {
   onNewWishChange(value: string) {
     console.log('content change to:', value)
     this.charChounter = value.length
+  }
+
+  filterChange(value: string) {
+    console.log("filter change:", value)
   }
 }
