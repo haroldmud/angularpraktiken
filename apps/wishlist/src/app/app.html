@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{title}}</title>
-</head>
-<body>
-  <div>
-    {{List[0].wishText}}
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <div *ngIf="List.length === 0 else displayList">
+      <div class="mx-auto w-fit font-bold">
+        <h1>Oops! No wish to display for now</h1>
+      </div>
+    </div>
+
+    <ng-template #displayList>
+      <ul class="mx-auto w-fit">
+        <li *ngFor="let item of List">
+          <label class="inline-flex gap-1"> <input type="checkbox" [checked]="item.isFulfilled" (click)="toggleItem(item)"/> <h2 [ngClass]="{'italic text-gray-300': item.isFulfilled}">{{item.wishText}}</h2></label>
+        </li>
+      </ul>
+    </ng-template>
+  </body>
 </html>
