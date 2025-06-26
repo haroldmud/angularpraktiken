@@ -32,7 +32,13 @@
         </div>
       </div>
     </form>
-    
+    <div>
+      <select name="filter" id="select0_1_2">
+        <option value="0">All</option>
+        <option value="1">Unfulfilled</option>
+        <option value="2">fulfilled</option>
+      </select>
+    </div>
     <div>
       <div *ngIf="List.length === 0 else displayList">
         <div class="mx-auto w-fit font-bold">
