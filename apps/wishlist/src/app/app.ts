@@ -22,4 +22,8 @@ export class App {
     item.isFulfilled = !item.isFulfilled
     console.log(`${item.wishText}: ${item.isFulfilled}`)
   }
+
+  addNewWish(value: string) {
+    this.List.push(new WishItems(value))
+  }
 }

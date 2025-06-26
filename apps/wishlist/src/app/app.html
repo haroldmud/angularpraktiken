@@ -6,6 +6,24 @@
     <title>{{title}}</title>
   </head>
   <body>
+    <form action="submit" class="w-full flex justify-center mt-10">
+  <div class="flex items-center gap-2 border border-gray-300 bg-white shadow-md rounded-full px-4 py-2 w-full max-w-md">
+    <input 
+      type="text" 
+      placeholder="Add your wish..." 
+      class="flex-1 placeholder:italic text-sm bg-transparent outline-none"
+      [(ngModel)]="newWish"
+    />
+    <button 
+      type="submit"
+      class="bg-blue-500 hover:bg-blue-600 text-white text-xs font-semibold px-4 py-1 rounded-full transition-colors"
+      (click)="$event.preventDefault(); addNewWish()"
+    >
+      ADD WISH
+    </button>
+  </div>
+</form>
+
     <div *ngIf="List.length === 0 else displayList">
       <div class="mx-auto w-fit font-bold">
         <h1>Oops! No wish to display for now</h1>
