@@ -13,7 +13,7 @@
 
 ## Run tasks
 
-To run the dev server for your app, use:
+If you ever want to run the dev server for your app, use:
 
 ```sh
 npx nx serve nothing
